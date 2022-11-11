@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.2.1
   syncfusion_flutter_sliders: ^19.4.56
+  flutter_dotenv: ^5.0.2
+  http: ^0.13.5
+  web3dart: ^2.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

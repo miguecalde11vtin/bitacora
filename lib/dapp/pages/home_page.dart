@@ -15,10 +15,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.withOpacity(.9),
       appBar: AppBar(title: Text("Dapp")),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
                 width: MediaQuery.of(context).size.width,
@@ -59,12 +61,40 @@ class _HomePageState extends State<HomePage> {
             CustomContainerWidget(
                 title: "Get Balance", color: Colors.green, onTap: () {}),
             CustomContainerWidget(
-                title: "Send", color: Colors.indigo.shade300, onTap: () {}),
+                title: "Send",
+                color: Colors.indigo.shade300,
+                onTap: () {
+                  incorrectValueDialog(context);
+                }),
             CustomContainerWidget(
-                title: "WithDraw", color: Colors.deepOrange, onTap: () {}),
+                title: "WithDraw",
+                color: Colors.deepOrange,
+                onTap: () {
+                  incorrectValueDialog(context);
+                }),
           ],
         ),
       ),
     );
   }
+}
+
+incorrectValueDialog(BuildContext context) {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Invalid Value',
+              textAlign: TextAlign.center, style: TextStyle(fontSize: 18.0)),
+          content: const Text('please put a value grater than 0',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black87)),
+          actions: [
+            ElevatedButton(
+              child: const Text('OK'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      });
 }
