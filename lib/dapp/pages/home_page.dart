@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                 title: "WithDraw",
                 color: Colors.deepOrange,
                 onTap: () {
-                  incorrectValueDialog(context);
+                  withDrawDialogBox(context);
                 }),
           ],
         ),
